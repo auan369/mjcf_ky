@@ -1,0 +1,15 @@
+<mujoco model="RRIS Rajagopal">
+
+    <compiler meshdir="character/rris_opensource" angle="radian"/>
+    <compiler angle="radian"/>
+
+    <option timestep="0.0003"
+            integrator="implicitfast"/>
+    <size memory="10G"/>
+
+    <include file="./common/skybox.xml"/>
+    <include file="./common/visual.xml"/>
+
+    <!-- Models -->
+    <include file="./character/rris_opensource/SN001/SN001_SK_flexBodyFull.xml"/>
+</mujoco>

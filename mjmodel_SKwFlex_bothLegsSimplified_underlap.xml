@@ -1,0 +1,1075 @@
+<mujoco model="RRIS Rajagopal">
+  <compiler angle="radian" meshdir="character/rris_opensource/" boundmass="0.001" boundinertia="0.001"/>
+  <option timestep="0.0001" tolerance="1e-06" integrator="implicitfast" solver="CG" iterations="1000"/>
+  <size memory="10G"/>
+  <visual>
+    <quality shadowsize="2048"/>
+    <headlight ambient="0.4 0.4 0.4" diffuse="0.8 0.8 0.8" specular="0.1 0.1 0.1"/>
+  </visual>
+  <statistic meansize="0.330656" extent="3.42" center="0 0 -0.29"/>
+  <default class="main">
+    <geom margin="0.001" rgba="0.8 0.6 0.4 1"/>
+    <default class="motor">
+      <general gainprm="5 0 0 0 0 0 0 0 0 0"/>
+    </default>
+  </default>
+  <extension>
+    <plugin plugin="mujoco.elasticity.solid">
+      <instance name="flexcomp_softbody_l_foot">
+        <config key="face" value="8 12 6 7 13 8 12 11 0 14 5 9 10 8 11 4 10 11 8 13 10 4 5 8 3 5 4 2 5 3 4 10 11 8 6 4 11 6 8 12 13 8 14 9 13 14 8 10 5 14 8 9 5 8 14 10 0 1 5 14 0 5 1 2 3 1 5 2 10 5 1 14 10 1 5 3"/>
+        <config key="edge" value="0 1 2 3 4 5 6 0 7 8 9 10 11 12 13 14 15 16 17 10 18 19 20 21 18 10 17 6 22 9 20 23 24 25 17 21 26 23 27 28 29 30 26 27 23 20 24 31 10 2 32 33 19 21 32 2 10 0 8 1 6 34 35 16 36 37 35 34 6 17 22 38 12 34 25 37 14 16 25 34 12 38 24 17 39 40 13 12 11 41 13 40 39 42 43 30 44 40 26 30 29 42 24 40 45 41 38 12 45 40 24 26 31 44 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+        <config key="young" value="4.5e6"/>
+        <config key="poisson" value="0.4"/>
+        <config key="damping" value="0.1"/>
+      </instance>
+      <instance name="flexcomp_softbody_r_foot">
+        <config key="face" value="0 1 8 13 5 11 10 7 9 5 10 7 11 10 12 5 10 11 9 7 5 10 2 9 1 4 2 0 1 2 4 3 14 5 4 2 14 4 5 12 8 0 4 1 14 9 5 2 4 0 14 2 0 9 14 2 7 14 5 6 14 7 5 9 14 7 0 6 7 14 0 9 2 5 3 10 2 3 5 4 12 3 5 10 12 5 3 4 14 8 0 4 14 0 8 6"/>
+        <config key="edge" value="0 1 2 3 4 5 6 7 8 9 10 11 12 8 13 9 14 10 7 15 16 17 6 8 7 18 13 14 9 11 8 19 20 21 12 13 22 23 24 25 0 26 24 23 22 27 28 29 30 31 32 23 33 20 32 31 30 17 34 35 2 26 36 22 1 0 37 12 30 20 33 21 26 38 32 33 23 25 39 37 38 33 25 21 40 30 10 41 42 43 40 10 30 12 37 14 40 44 38 45 43 42 40 38 44 39 14 37 20 46 29 47 19 8 29 46 20 31 23 27 48 46 17 8 15 47 17 46 48 27 35 31 49 2 38 26 32 36 38 2 49 50 43 45 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+        <config key="young" value="4.5e6"/>
+        <config key="poisson" value="0.4"/>
+        <config key="damping" value="0.1"/>
+      </instance>
+      <instance name="flexcomp_softbody_l_calf">
+        <config key="face" value="13 5 6 4 6 11 13 4 0 11 6 4 3 6 0 11 12 7 9 11 8 0 4 11 0 8 4 1 0 8 10 11 13 11 7 12 11 10 7 9 10 3 2 0 3 10 2 7 3 10 11 0 10 3 11 7 5 6 7 13 5 7 6 3 11 7 6 13 11 6 7 3 8 2 0 10 2 8 0 1"/>
+        <config key="edge" value="0 1 2 3 4 5 6 7 2 4 3 8 9 6 10 3 11 8 12 10 13 9 14 6 15 16 17 18 19 20 21 11 22 8 23 9 21 22 11 24 25 26 21 27 28 29 9 23 7 20 30 15 31 19 29 32 20 16 18 33 34 35 36 37 28 13 34 36 35 38 39 32 34 29 14 9 13 28 34 14 29 20 32 39 1 40 41 30 0 2 41 40 1 12 42 39 20 40 6 2 7 30 6 40 20 39 14 12 43 37 21 28 27 36 43 21 37 25 44 26 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+        <config key="young" value="4.5e6"/>
+        <config key="poisson" value="0.4"/>
+        <config key="damping" value="0.1"/>
+      </instance>
+      <instance name="flexcomp_softbody_r_calf">
+        <config key="face" value="8 5 11 4 10 1 12 11 2 0 1 7 12 0 1 10 7 12 1 11 0 12 13 10 7 0 1 12 4 5 3 8 13 12 7 9 3 4 1 6 1 4 0 6 1 0 4 10 7 12 8 9 7 8 12 11 5 8 12 9 5 12 8 11 1 4 11 10 7 0 13 2 7 13 0 12 11 4 7 8 11 7 4 1 3 7 4 8 3 4 7 1"/>
+        <config key="edge" value="0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 13 7 6 8 19 20 7 15 11 21 9 18 22 23 24 19 8 17 13 15 7 20 18 5 25 26 27 4 0 22 20 28 29 30 31 26 32 33 34 35 36 32 37 13 38 34 36 13 37 32 39 6 19 20 40 41 42 29 31 41 40 20 9 21 2 0 40 43 31 44 42 43 40 0 2 1 9 32 3 11 10 6 39 17 23 28 45 16 12 28 23 17 18 20 22 3 46 21 41 2 4 21 46 3 32 11 15 47 46 26 4 27 41 26 46 47 15 33 32 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+        <config key="young" value="4.5e4"/>
+        <config key="poisson" value="0.4"/>
+        <config key="damping" value="0.1"/>
+      </instance>
+      <instance name="flexcomp_softbody_l_thigh">
+        <config key="face" value="2 7 8 9 1 2 0 3 7 2 1 3 9 7 6 5 8 10 2 9 8 0 2 10 1 6 7 5 1 5 7 3 2 3 4 0 11 2 0 10 2 11 0 4 2 11 9 10 7 2 5 9 7 5 2 3 4 2 5 3 11 2 5 4 11 5 2 9"/>
+        <config key="edge" value="0 1 2 3 4 5 6 7 8 9 10 11 0 6 12 10 13 11 5 14 15 16 17 18 19 20 2 4 3 21 22 7 2 20 19 23 24 14 12 18 25 16 25 18 12 13 10 26 11 27 28 29 7 9 30 7 31 23 32 20 30 31 7 29 28 33 30 34 4 21 20 32 0 35 18 17 5 4 18 35 0 11 13 26 28 35 36 26 27 11 30 35 37 36 33 28 37 35 30 4 34 17 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+        <config key="young" value="4.5e6"/>
+        <config key="poisson" value="0.4"/>
+        <config key="damping" value="0.1"/>
+      </instance>
+      <instance name="flexcomp_softbody_r_thigh">
+        <config key="face" value="0 3 1 8 11 1 8 6 1 11 5 6 2 8 1 6 0 8 1 2 7 10 8 11 3 9 0 4 9 3 0 8 6 7 8 11 6 8 7 2 9 3 10 4 5 10 3 4 10 8 3 9 5 8 1 3 8 5 1 11 8 5 10 3 5 8 10 11"/>
+        <config key="edge" value="0 1 2 3 4 5 6 3 7 8 9 10 6 11 12 13 10 9 14 3 15 10 16 8 4 3 2 15 17 14 18 19 20 7 21 22 23 24 0 25 26 27 23 0 24 4 28 5 29 20 8 7 9 21 8 20 29 30 16 14 23 31 32 33 27 26 34 31 35 26 36 33 19 5 31 23 32 28 37 3 12 1 35 5 37 12 3 6 7 11 37 34 19 31 5 35 37 19 34 22 11 7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+        <config key="young" value="4.5e4"/>
+        <config key="poisson" value="0.4"/>
+        <config key="damping" value="0.1"/>
+      </instance>
+    </plugin>
+  </extension>
+  <asset>
+    <texture type="skybox" name="skybox" builtin="gradient" mark="random" rgb1="0.4 0.6 0.8" rgb2="0 0 0" markrgb="1 1 1" width="800" height="4800"/>
+    <texture type="2d" name="texplane" builtin="checker" rgb1="0.2 0.3 0.4" rgb2="0.1 0.15 0.2" width="100" height="100"/>
+    <material name="MatPlane" texture="texplane" texuniform="true"/>
+    <mesh name="r_pelvis" file="Geometry/r_pelvis.stl" scale="1.15666 1.15666 0.936706"/>
+    <mesh name="l_pelvis" file="Geometry/l_pelvis.stl" scale="1.15666 1.15666 0.936706"/>
+    <mesh name="sacrum" file="Geometry/sacrum.stl" scale="1.15666 1.15666 0.936706"/>
+    <mesh name="r_femur" file="Geometry/r_femur.stl" scale="0.974653 0.974653 0.974653"/>
+    <mesh name="r_tibia" file="Geometry/r_tibia.stl" scale="1.10963 1.10963 1.10963"/>
+    <mesh name="r_fibula" file="Geometry/r_fibula.stl" scale="1.10963 1.10963 1.10963"/>
+    <mesh name="r_talus" file="Geometry/r_talus.stl" scale="0.863394 0.863394 0.863394"/>
+    <mesh name="r_foot" file="Geometry/r_foot.stl" scale="0.863394 0.863394 0.863394"/>
+    <mesh name="r_bofoot" file="Geometry/r_bofoot.stl" scale="0.863394 0.863394 0.863394"/>
+    <mesh name="r_patella" file="Geometry/r_patella.stl"/>
+    <mesh name="l_femur" file="Geometry/l_femur.stl" scale="0.981062 0.981062 0.981062"/>
+    <mesh name="l_tibia" file="Geometry/l_tibia.stl" scale="1.13552 1.13552 1.13552"/>
+    <mesh name="l_fibula" file="Geometry/l_fibula.stl" scale="1.13552 1.13552 1.13552"/>
+    <mesh name="l_talus" file="Geometry/l_talus.stl" scale="0.919209 0.919209 0.919209"/>
+    <mesh name="l_foot" file="Geometry/l_foot.stl" scale="0.919209 0.919209 0.919209"/>
+    <mesh name="l_bofoot" file="Geometry/l_bofoot.stl" scale="0.919209 0.919209 0.919209"/>
+    <mesh name="l_patella" file="Geometry/l_patella.stl"/>
+    <mesh name="hat_spine" file="Geometry/hat_spine.stl" scale="1.09445 1.09445 1.09445"/>
+    <mesh name="hat_jaw" file="Geometry/hat_jaw.stl" scale="1.09445 1.09445 1.09445"/>
+    <mesh name="hat_skull" file="Geometry/hat_skull.stl" scale="1.09445 1.09445 1.09445"/>
+    <mesh name="hat_ribs_scap" file="Geometry/hat_ribs_scap.stl" scale="1.09445 1.09445 1.09445"/>
+    <mesh name="humerus_rv" file="Geometry/humerus_rv.stl" scale="1.08795 1.08795 1.08795"/>
+    <mesh name="ulna_rv" file="Geometry/ulna_rv.stl" scale="1.10717 1.10717 1.10717"/>
+    <mesh name="radius_rv" file="Geometry/radius_rv.stl" scale="1.16388 1.16388 1.16388"/>
+    <mesh name="pisiform_rvs" file="Geometry/pisiform_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="lunate_rvs" file="Geometry/lunate_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="scaphoid_rvs" file="Geometry/scaphoid_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="triquetrum_rvs" file="Geometry/triquetrum_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="hamate_rvs" file="Geometry/hamate_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="capitate_rvs" file="Geometry/capitate_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="trapezoid_rvs" file="Geometry/trapezoid_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="trapezium_rvs" file="Geometry/trapezium_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="metacarpal2_rvs" file="Geometry/metacarpal2_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="index_proximal_rvs" file="Geometry/index_proximal_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="index_medial_rvs" file="Geometry/index_medial_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="index_distal_rvs" file="Geometry/index_distal_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="metacarpal3_rvs" file="Geometry/metacarpal3_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="middle_proximal_rvs" file="Geometry/middle_proximal_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="middle_medial_rvs" file="Geometry/middle_medial_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="middle_distal_rvs" file="Geometry/middle_distal_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="metacarpal4_rvs" file="Geometry/metacarpal4_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="ring_proximal_rvs" file="Geometry/ring_proximal_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="ring_medial_rvs" file="Geometry/ring_medial_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="ring_distal_rvs" file="Geometry/ring_distal_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="metacarpal5_rvs" file="Geometry/metacarpal5_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="little_proximal_rvs" file="Geometry/little_proximal_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="little_medial_rvs" file="Geometry/little_medial_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="little_distal_rvs" file="Geometry/little_distal_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="metacarpal1_rvs" file="Geometry/metacarpal1_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="thumb_proximal_rvs" file="Geometry/thumb_proximal_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="thumb_distal_rvs" file="Geometry/thumb_distal_rvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="humerus_lv" file="Geometry/humerus_lv.stl" scale="1.07291 1.07291 1.07291"/>
+    <mesh name="ulna_lv" file="Geometry/ulna_lv.stl" scale="1.11541 1.11541 1.11541"/>
+    <mesh name="radius_lv" file="Geometry/radius_lv.stl" scale="1.16522 1.16522 1.16522"/>
+    <mesh name="pisiform_lvs" file="Geometry/pisiform_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="lunate_lvs" file="Geometry/lunate_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="scaphoid_lvs" file="Geometry/scaphoid_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="triquetrum_lvs" file="Geometry/triquetrum_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="hamate_lvs" file="Geometry/hamate_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="capitate_lvs" file="Geometry/capitate_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="trapezoid_lvs" file="Geometry/trapezoid_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="trapezium_lvs" file="Geometry/trapezium_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="metacarpal2_lvs" file="Geometry/metacarpal2_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="index_proximal_lvs" file="Geometry/index_proximal_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="index_medial_lvs" file="Geometry/index_medial_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="index_distal_lvs" file="Geometry/index_distal_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="metacarpal3_lvs" file="Geometry/metacarpal3_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="middle_proximal_lvs" file="Geometry/middle_proximal_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="middle_medial_lvs" file="Geometry/middle_medial_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="middle_distal_lvs" file="Geometry/middle_distal_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="metacarpal4_lvs" file="Geometry/metacarpal4_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="ring_proximal_lvs" file="Geometry/ring_proximal_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="ring_medial_lvs" file="Geometry/ring_medial_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="ring_distal_lvs" file="Geometry/ring_distal_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="metacarpal5_lvs" file="Geometry/metacarpal5_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="little_proximal_lvs" file="Geometry/little_proximal_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="little_medial_lvs" file="Geometry/little_medial_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="little_distal_lvs" file="Geometry/little_distal_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="metacarpal1_lvs" file="Geometry/metacarpal1_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="thumb_proximal_lvs" file="Geometry/thumb_proximal_lvs.stl" scale="0.85 0.85 0.85"/>
+    <mesh name="thumb_distal_lvs" file="Geometry/thumb_distal_lvs.stl" scale="0.85 0.85 0.85"/>
+  </asset>
+  <worldbody>
+    <geom name="floor" size="10 10 0.125" pos="0 0 -1.1" type="plane" contype="3" conaffinity="3" material="MatPlane"/>
+    <camera name="for_testing" pos="0 0 0"/>
+    <body name="l_foot" pos="-0.22 0 0.71">
+      <body name="softbody_l_foot_0" pos="0.0989598 0.0651699 -1.62567">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+      <body name="softbody_l_foot_1" pos="0.0828655 0.0875301 -1.67632">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+      <body name="softbody_l_foot_2" pos="0.103676 0.0543596 -1.69418">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+      <body name="softbody_l_foot_3" pos="0.095703 0.0818914 -1.7016">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+      <body name="softbody_l_foot_4" pos="0.290581 0.0493061 -1.70427">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+      <body name="softbody_l_foot_5" pos="0.177498 0.0405043 -1.63081">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+      <body name="softbody_l_foot_6" pos="0.344864 0.0525401 -1.70381">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+      <body name="softbody_l_foot_7" pos="0.348159 0.0582357 -1.69039">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+      <body name="softbody_l_foot_8" pos="0.260927 0.0632397 -1.66829">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+      <body name="softbody_l_foot_9" pos="0.185893 0.0977791 -1.63013">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+      <body name="softbody_l_foot_10" pos="0.135869 0.122551 -1.69342">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+      <body name="softbody_l_foot_11" pos="0.303124 0.130545 -1.7053">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+      <body name="softbody_l_foot_12" pos="0.33384 0.110132 -1.69696">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+      <body name="softbody_l_foot_13" pos="0.262472 0.146333 -1.68853">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+      <body name="softbody_l_foot_14" pos="0.116841 0.102044 -1.63334">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_foot"/>
+      </body>
+    </body>
+    <body name="r_foot" pos="-0.22 0.05 0.71">
+      <body name="softbody_r_foot_0" pos="0.271784 -0.182589 -1.70766">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+      <body name="softbody_r_foot_1" pos="0.337806 -0.177885 -1.6987">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+      <body name="softbody_r_foot_2" pos="0.240131 -0.191833 -1.69515">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+      <body name="softbody_r_foot_3" pos="0.263341 -0.186357 -1.6776">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+      <body name="softbody_r_foot_4" pos="0.28641 -0.145238 -1.67425">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+      <body name="softbody_r_foot_5" pos="0.19179 -0.0931207 -1.63859">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+      <body name="softbody_r_foot_6" pos="0.293734 -0.100238 -1.70635">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+      <body name="softbody_r_foot_7" pos="0.107255 -0.110256 -1.69702">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+      <body name="softbody_r_foot_8" pos="0.372206 -0.105858 -1.70044">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+      <body name="softbody_r_foot_9" pos="0.106636 -0.153846 -1.69099">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+      <body name="softbody_r_foot_10" pos="0.133402 -0.1514 -1.63026">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+      <body name="softbody_r_foot_11" pos="0.115204 -0.113981 -1.62412">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+      <body name="softbody_r_foot_12" pos="0.195564 -0.14606 -1.62554">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+      <body name="softbody_r_foot_13" pos="0.363725 -0.14868 -1.70623">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+      <body name="softbody_r_foot_14" pos="0.282828 -0.105046 -1.67421">
+        <inertial pos="0 0 0" mass="0.0930266" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_foot"/>
+      </body>
+    </body>
+    <body name="l_calf" pos="-0.22 0 0.71">
+      <body name="softbody_l_calf_0" pos="0.108758 0.0415342 -1.39894">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_calf"/>
+      </body>
+      <body name="softbody_l_calf_1" pos="0.104633 0.0741279 -1.60354">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_calf"/>
+      </body>
+      <body name="softbody_l_calf_2" pos="0.153816 0.0553351 -1.6106">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_calf"/>
+      </body>
+      <body name="softbody_l_calf_3" pos="0.170338 0.0254239 -1.24827">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_calf"/>
+      </body>
+      <body name="softbody_l_calf_4" pos="0.0906702 0.11581 -1.36324">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_calf"/>
+      </body>
+      <body name="softbody_l_calf_5" pos="0.121524 0.093568 -1.22255">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_calf"/>
+      </body>
+      <body name="softbody_l_calf_6" pos="0.130066 0.0430151 -1.2525">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_calf"/>
+      </body>
+      <body name="softbody_l_calf_7" pos="0.22098 0.0634585 -1.25078">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_calf"/>
+      </body>
+      <body name="softbody_l_calf_8" pos="0.125972 0.108853 -1.61825">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_calf"/>
+      </body>
+      <body name="softbody_l_calf_9" pos="0.200737 0.0876561 -1.42693">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_calf"/>
+      </body>
+      <body name="softbody_l_calf_10" pos="0.171335 0.0967554 -1.59862">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_calf"/>
+      </body>
+      <body name="softbody_l_calf_11" pos="0.156833 0.136066 -1.3883">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_calf"/>
+      </body>
+      <body name="softbody_l_calf_12" pos="0.214846 0.103908 -1.25403">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_calf"/>
+      </body>
+      <body name="softbody_l_calf_13" pos="0.158438 0.126897 -1.23589">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_calf"/>
+      </body>
+    </body>
+    <body name="r_calf" pos="-0.22 0.05 0.71">
+      <body name="softbody_r_calf_0" pos="0.10048 -0.167786 -1.36462">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_calf"/>
+      </body>
+      <body name="softbody_r_calf_1" pos="0.151974 -0.181303 -1.39295">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_calf"/>
+      </body>
+      <body name="softbody_r_calf_2" pos="0.159536 -0.171074 -1.24009">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_calf"/>
+      </body>
+      <body name="softbody_r_calf_3" pos="0.168492 -0.140348 -1.60873">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_calf"/>
+      </body>
+      <body name="softbody_r_calf_4" pos="0.103134 -0.118286 -1.60792">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_calf"/>
+      </body>
+      <body name="softbody_r_calf_5" pos="0.147983 -0.0978677 -1.60993">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_calf"/>
+      </body>
+      <body name="softbody_r_calf_6" pos="0.126678 -0.151641 -1.61192">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_calf"/>
+      </body>
+      <body name="softbody_r_calf_7" pos="0.221366 -0.135347 -1.26061">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_calf"/>
+      </body>
+      <body name="softbody_r_calf_8" pos="0.188767 -0.115868 -1.50434">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_calf"/>
+      </body>
+      <body name="softbody_r_calf_9" pos="0.207452 -0.0917705 -1.24778">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_calf"/>
+      </body>
+      <body name="softbody_r_calf_10" pos="0.0888522 -0.115686 -1.38211">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_calf"/>
+      </body>
+      <body name="softbody_r_calf_11" pos="0.117981 -0.0812133 -1.40984">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_calf"/>
+      </body>
+      <body name="softbody_r_calf_12" pos="0.140708 -0.0680653 -1.2596">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_calf"/>
+      </body>
+      <body name="softbody_r_calf_13" pos="0.11946 -0.129483 -1.22304">
+        <inertial pos="0 0 0" mass="0.235881" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_calf"/>
+      </body>
+    </body>
+    <body name="l_thigh" pos="-0.22 0 0.71">
+      <body name="softbody_l_thigh_0" pos="0.0869447 0.0160867 -0.892845">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_thigh"/>
+      </body>
+      <body name="softbody_l_thigh_1" pos="0.128614 0.0307764 -1.20031">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_thigh"/>
+      </body>
+      <body name="softbody_l_thigh_2" pos="0.198876 0.00652253 -0.936834">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_thigh"/>
+      </body>
+      <body name="softbody_l_thigh_3" pos="0.101436 0.0849475 -1.17946">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_thigh"/>
+      </body>
+      <body name="softbody_l_thigh_4" pos="0.0789383 0.108893 -0.887372">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_thigh"/>
+      </body>
+      <body name="softbody_l_thigh_5" pos="0.134702 0.117576 -1.19751">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_thigh"/>
+      </body>
+      <body name="softbody_l_thigh_6" pos="0.199815 0.0930649 -1.21228">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_thigh"/>
+      </body>
+      <body name="softbody_l_thigh_7" pos="0.205662 0.0617583 -1.19433">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_thigh"/>
+      </body>
+      <body name="softbody_l_thigh_8" pos="0.250117 0.0302323 -0.885432">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_thigh"/>
+      </body>
+      <body name="softbody_l_thigh_9" pos="0.225129 0.123591 -0.989802">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_thigh"/>
+      </body>
+      <body name="softbody_l_thigh_10" pos="0.229502 0.104852 -0.833016">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_thigh"/>
+      </body>
+      <body name="softbody_l_thigh_11" pos="0.150284 0.146791 -0.839931">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_l_thigh"/>
+      </body>
+    </body>
+    <body name="r_thigh" pos="-0.22 0.05 0.71">
+      <body name="softbody_r_thigh_0" pos="0.156956 -0.165897 -1.20105">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_thigh"/>
+      </body>
+      <body name="softbody_r_thigh_1" pos="0.115613 -0.139517 -1.18789">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_thigh"/>
+      </body>
+      <body name="softbody_r_thigh_2" pos="0.214548 -0.111779 -1.21125">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_thigh"/>
+      </body>
+      <body name="softbody_r_thigh_3" pos="0.0897472 -0.151491 -0.888938">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_thigh"/>
+      </body>
+      <body name="softbody_r_thigh_4" pos="0.157331 -0.190987 -0.842284">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_thigh"/>
+      </body>
+      <body name="softbody_r_thigh_5" pos="0.0901936 -0.0826674 -0.895563">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_thigh"/>
+      </body>
+      <body name="softbody_r_thigh_6" pos="0.140791 -0.0753811 -1.19978">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_thigh"/>
+      </body>
+      <body name="softbody_r_thigh_7" pos="0.266794 -0.0812717 -0.889798">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_thigh"/>
+      </body>
+      <body name="softbody_r_thigh_8" pos="0.249388 -0.162448 -0.97071">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_thigh"/>
+      </body>
+      <body name="softbody_r_thigh_9" pos="0.20497 -0.191262 -0.835769">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_thigh"/>
+      </body>
+      <body name="softbody_r_thigh_10" pos="0.249536 -0.12363 -0.828756">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_thigh"/>
+      </body>
+      <body name="softbody_r_thigh_11" pos="0.173024 -0.0500543 -0.907018">
+        <inertial pos="0 0 0" mass="0.69041" diaginertia="0.001 0.001 0.001"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide"/>
+        <plugin instance="flexcomp_softbody_r_thigh"/>
+      </body>
+    </body>
+    <body name="pelvis" quat="0.707107 0.707107 0 0">
+      <inertial pos="-0.0817759 0 0" mass="10.9271" diaginertia="0.0960569 0.0960569 0.0718719"/>
+      <joint name="pelvis_tz" pos="0 0 0" axis="0 0 1" limited="false" type="slide" range="-3 3"/>
+      <joint name="pelvis_ty" pos="0 0 0" axis="0 1 0" limited="false" type="slide" range="-1 2"/>
+      <joint name="pelvis_tx" pos="0 0 0" axis="1 0 0" limited="false" type="slide" range="-5 5"/>
+      <joint name="pelvis_tilt" pos="0 0 0" axis="0 0 1" limited="false" range="-1.5708 1.5708"/>
+      <joint name="pelvis_list" pos="0 0 0" axis="1 0 0" limited="false" range="-1.5708 1.5708"/>
+      <joint name="pelvis_rotation" pos="0 0 0" axis="0 1 0" limited="false" range="-1.5708 1.5708"/>
+      <geom name="r_pelvis" type="mesh" mesh="r_pelvis"/>
+      <geom name="l_pelvis" type="mesh" mesh="l_pelvis"/>
+      <geom name="sacrum" type="mesh" mesh="sacrum"/>
+      <light pos="0 0 4" dir="0 0 -1" mode="trackcom"/>
+      <body name="femur_r" pos="-0.0650922 -0.0907863 0.0723699">
+        <inertial pos="0 -0.165691 0" quat="0.5 0.5 -0.5 0.5" mass="0.345205" diaginertia="0.124453 0.118018 0.0309369"/>
+        <joint name="hip_flexion_r" pos="0 0 0" axis="0 0 1" limited="false" range="-0.523599 2.0944"/>
+        <joint name="hip_adduction_r" pos="0 0 0" axis="1 0 0" limited="false" range="-0.872665 0.523599"/>
+        <joint name="hip_rotation_r" pos="0 0 0" axis="0 1 0" limited="false" range="-0.698132 0.698132"/>
+        <geom name="r_femur" type="mesh" mesh="r_femur"/>
+        <body name="tibia_r" pos="0.00109144 -0.393697 -0.00103279">
+          <inertial pos="0 -0.207168 0" quat="0.5 0.5 -0.5 0.5" mass="0.137597" diaginertia="0.0583775 0.0575778 0.00582632"/>
+          <joint name="knee_angle_r_translation2" pos="0 0 0" axis="0.992246 0.123982 -0.00878916" type="slide" range="7.69254e-11 0.006792"/>
+          <joint name="knee_angle_r_translation1" pos="0 0 0" axis="-0.124293 0.989762 -0.0701648" type="slide" range="9.53733e-08 0.00159883"/>
+          <joint name="knee_angle_r" pos="0 0 0" axis="-3.98373e-10 -0.0707131 -0.997497" limited="false" range="0 2.0944"/>
+          <joint name="knee_angle_r_rotation2" pos="0 0 0" axis="0.992246 0.123982 -0.00878916" range="-0.00167821 0.0335354"/>
+          <joint name="knee_angle_r_rotation3" pos="0 0 0" axis="-0.124293 0.989762 -0.0701648" range="1.08939e-08 0.262788"/>
+          <geom name="r_tibia" type="mesh" mesh="r_tibia"/>
+          <geom name="r_fibula" type="mesh" mesh="r_fibula"/>
+          <body name="talus_r" pos="-0.0110963 -0.443852 0">
+            <inertial pos="0 0 0" mass="0.00370664" diaginertia="0.001 0.001 0.001"/>
+            <joint name="ankle_angle_r" pos="0 0 0" axis="-0.105014 -0.174022 0.979126" limited="false" range="-0.698132 0.523599"/>
+            <geom name="r_talus" type="mesh" mesh="r_talus"/>
+            <body name="calcn_r" pos="-0.0421077 -0.0362194 0.00683808">
+              <inertial pos="0.0863394 0.0259018 0" quat="0 0.707107 0 0.707107" mass="0.0463399" diaginertia="0.00283577 0.00269744 0.001"/>
+              <joint name="subtalar_angle_r" pos="0 0 0" axis="0.78718 0.604747 -0.120949" limited="false" range="-0.349066 0.349066"/>
+              <geom name="r_foot" type="mesh" mesh="r_foot"/>
+              <body name="toes_r" pos="0.154375 -0.00172679 0.000932466">
+                <inertial pos="0.0298734 0.00518037 -0.0151094" quat="0 0.707107 0 0.707107" mass="0.00803813" diaginertia="0.001 0.001 0.001"/>
+                <joint name="mtp_angle_r" pos="0 0 0" axis="0.580954 0 -0.813936" limited="false" range="-0.523599 0.523599"/>
+                <geom name="r_bofoot" type="mesh" mesh="r_bofoot"/>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="patella_r" pos="-0.00788495 -0.39762 6.9703e-05">
+          <inertial pos="0.0018 0.0264 0" quat="0.5 0.5 0.5 0.5" mass="0.079979" diaginertia="0.001 0.001 0.001"/>
+          <joint name="knee_angle_r_beta_translation2" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0408267 -0.0108281"/>
+          <joint name="knee_angle_r_beta_translation1" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0227731 0.0524192"/>
+          <joint name="knee_angle_r_beta_rotation1" pos="0 0 0" axis="0 0 1" range="-1.79241 0.010506"/>
+          <geom name="r_patella" type="mesh" mesh="r_patella"/>
+        </body>
+      </body>
+      <body name="femur_l" pos="-0.0650922 -0.0907863 -0.0723699">
+        <inertial pos="0 -0.166781 0" quat="0.5 0.5 -0.5 0.5" mass="0.345205" diaginertia="0.126095 0.119576 0.031345"/>
+        <joint name="hip_flexion_l" pos="0 0 0" axis="0 0 1" limited="false" range="-0.523599 2.0944"/>
+        <joint name="hip_adduction_l" pos="0 0 0" axis="-1 0 0" limited="false" range="-0.872665 0.523599"/>
+        <joint name="hip_rotation_l" pos="0 0 0" axis="0 -1 0" limited="false" range="-0.698132 0.698132"/>
+        <geom name="l_femur" type="mesh" mesh="l_femur"/>
+        <body name="tibia_l" pos="0.00124904 -0.39622 0.00101197">
+          <inertial pos="0 -0.212002 0" quat="0.5 0.5 -0.5 0.5" mass="0.137597" diaginertia="0.0611335 0.060296 0.00610138"/>
+          <joint name="knee_angle_l_translation2" pos="0 0 0" axis="-0.992246 -0.123982 -0.00878916" type="slide" range="-0.006792 -7.69254e-11"/>
+          <joint name="knee_angle_l_translation1" pos="0 0 0" axis="-0.124293 0.989762 0.0701648" type="slide" range="9.53733e-08 0.00159883"/>
+          <joint name="knee_angle_l" pos="0 0 0" axis="3.98373e-10 0.0707131 -0.997497" limited="false" range="0 2.0944"/>
+          <joint name="knee_angle_l_rotation2" pos="0 0 0" axis="-0.992246 -0.123982 -0.00878916" range="-0.00167821 0.0335354"/>
+          <joint name="knee_angle_l_rotation3" pos="0 0 0" axis="-0.124293 0.989762 0.0701648" range="-0.262788 -1.08939e-08"/>
+          <geom name="l_tibia" type="mesh" mesh="l_tibia"/>
+          <geom name="l_fibula" type="mesh" mesh="l_fibula"/>
+          <body name="talus_l" pos="-0.0113552 -0.454208 0">
+            <inertial pos="0 0 0" mass="0.00370664" diaginertia="0.001 0.001 0.001"/>
+            <joint name="ankle_angle_l" pos="0 0 0" axis="0.105014 0.174022 0.979126" limited="false" range="-0.698132 0.523599"/>
+            <geom name="l_talus" type="mesh" mesh="l_talus"/>
+            <body name="calcn_l" pos="-0.0448298 -0.0385608 -0.00728013">
+              <inertial pos="0.0919209 0.0275763 0" quat="0 0.707107 0 0.707107" mass="0.0463399" diaginertia="0.00321426 0.00305747 0.00109755"/>
+              <joint name="subtalar_angle_l" pos="0 0 0" axis="-0.78718 -0.604747 -0.120949" limited="false" range="-0.349066 0.349066"/>
+              <geom name="l_foot" type="mesh" mesh="l_foot"/>
+              <body name="toes_l" pos="0.164355 -0.00183842 -0.000992746">
+                <inertial pos="0.0318046 0.00551525 0.0160862" quat="0 0.707107 0 0.707107" mass="0.00803813" diaginertia="0.001 0.001 0.001"/>
+                <joint name="mtp_angle_l" pos="0 0 0" axis="-0.580954 0 -0.813936" limited="false" range="-0.523599 0.523599"/>
+                <geom name="l_bofoot" type="mesh" mesh="l_bofoot"/>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="patella_l" pos="-0.00793679 -0.400234 -5.20799e-05">
+          <inertial pos="0.0018 0.0264 0" quat="0.5 0.5 0.5 0.5" mass="0.079979" diaginertia="0.001 0.001 0.001"/>
+          <joint name="knee_angle_l_beta_translation2" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0408267 -0.0108281"/>
+          <joint name="knee_angle_l_beta_translation1" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0227731 0.0524192"/>
+          <joint name="knee_angle_l_beta_rotation1" pos="0 0 0" axis="0 0 1" range="-1.79241 0.010506"/>
+          <geom name="l_patella" type="mesh" mesh="l_patella"/>
+        </body>
+      </body>
+      <body name="torso" pos="-0.116476 0.0942678 0">
+        <inertial pos="-0.0328335 0.350224 0" quat="0.707107 0.707107 0 0" mass="24.8905" diaginertia="1.63872 1.59082 0.839645"/>
+        <joint name="lumbar_extension" pos="0 0 0" axis="0 0 1" limited="false" range="-1.5708 1.5708"/>
+        <joint name="lumbar_bending" pos="0 0 0" axis="1 0 0" limited="false" range="-1.5708 1.5708"/>
+        <joint name="lumbar_rotation" pos="0 0 0" axis="0 1 0" limited="false" range="-1.5708 1.5708"/>
+        <geom name="hat_spine" type="mesh" mesh="hat_spine"/>
+        <geom name="hat_jaw" type="mesh" mesh="hat_jaw"/>
+        <geom name="hat_skull" type="mesh" mesh="hat_skull"/>
+        <geom name="hat_ribs_scap" type="mesh" mesh="hat_ribs_scap"/>
+        <body name="humerus_r" pos="0.00345299 0.406588 0.186057">
+          <inertial pos="0 -0.17897 0" quat="0.5 0.5 -0.5 0.5" mass="1.88582" diaginertia="0.014726 0.0131193 0.00452576"/>
+          <joint name="arm_flex_r" pos="0 0 0" axis="0 0 1" limited="false" range="-1.5708 1.5708"/>
+          <joint name="arm_add_r" pos="0 0 0" axis="1 0 0" limited="false" range="-2.0944 1.5708"/>
+          <joint name="arm_rot_r" pos="0 0 0" axis="0 1 0" limited="false" range="-1.5708 1.5708"/>
+          <geom name="humerus_rv" type="mesh" mesh="humerus_rv"/>
+          <body name="ulna_r" pos="0.0143001 -0.311452 -0.0104389">
+            <inertial pos="0 -0.133441 0" quat="0.5 0.5 -0.5 0.5" mass="0.563657" diaginertia="0.00365432 0.00336884 0.001"/>
+            <joint name="elbow_flex_r" pos="0 0 0" axis="0.226047 0.022269 0.973862" limited="false" range="0 2.618"/>
+            <geom name="ulna_rv" type="mesh" mesh="ulna_rv"/>
+            <body name="radius_r" pos="-0.00744792 -0.0144009 0.0288783">
+              <inertial pos="0 -0.140277 0" quat="0.5 0.5 -0.5 0.5" mass="0.563657" diaginertia="0.00403828 0.00372281 0.001"/>
+              <joint name="pro_sup_r" pos="0 0 0" axis="0.056398 0.998406 0.001952" limited="false" range="0 1.5708"/>
+              <geom name="radius_rv" type="mesh" mesh="radius_rv"/>
+              <body name="hand_r" pos="-0.0102387 -0.274491 0.0158404">
+                <inertial pos="0 -0.068095 0" quat="0.5 0.5 -0.5 0.5" mass="0.424483" diaginertia="0.00124329 0.001 0.001"/>
+                <joint name="wrist_flex_r" pos="0 0 0" axis="0 0 1" limited="false" range="-1.22173 1.22173"/>
+                <joint name="wrist_dev_r" pos="0 0 0" axis="1 0 0" limited="false" range="-0.436332 0.610865"/>
+                <geom name="pisiform_rvs" type="mesh" mesh="pisiform_rvs"/>
+                <geom name="lunate_rvs" type="mesh" mesh="lunate_rvs"/>
+                <geom name="scaphoid_rvs" type="mesh" mesh="scaphoid_rvs"/>
+                <geom name="triquetrum_rvs" type="mesh" mesh="triquetrum_rvs"/>
+                <geom name="hamate_rvs" type="mesh" mesh="hamate_rvs"/>
+                <geom name="capitate_rvs" type="mesh" mesh="capitate_rvs"/>
+                <geom name="trapezoid_rvs" type="mesh" mesh="trapezoid_rvs"/>
+                <geom name="trapezium_rvs" type="mesh" mesh="trapezium_rvs"/>
+                <geom name="metacarpal2_rvs" type="mesh" mesh="metacarpal2_rvs"/>
+                <geom name="index_proximal_rvs" type="mesh" mesh="index_proximal_rvs"/>
+                <geom name="index_medial_rvs" type="mesh" mesh="index_medial_rvs"/>
+                <geom name="index_distal_rvs" type="mesh" mesh="index_distal_rvs"/>
+                <geom name="metacarpal3_rvs" type="mesh" mesh="metacarpal3_rvs"/>
+                <geom name="middle_proximal_rvs" type="mesh" mesh="middle_proximal_rvs"/>
+                <geom name="middle_medial_rvs" type="mesh" mesh="middle_medial_rvs"/>
+                <geom name="middle_distal_rvs" type="mesh" mesh="middle_distal_rvs"/>
+                <geom name="metacarpal4_rvs" type="mesh" mesh="metacarpal4_rvs"/>
+                <geom name="ring_proximal_rvs" type="mesh" mesh="ring_proximal_rvs"/>
+                <geom name="ring_medial_rvs" type="mesh" mesh="ring_medial_rvs"/>
+                <geom name="ring_distal_rvs" type="mesh" mesh="ring_distal_rvs"/>
+                <geom name="metacarpal5_rvs" type="mesh" mesh="metacarpal5_rvs"/>
+                <geom name="little_proximal_rvs" type="mesh" mesh="little_proximal_rvs"/>
+                <geom name="little_medial_rvs" type="mesh" mesh="little_medial_rvs"/>
+                <geom name="little_distal_rvs" type="mesh" mesh="little_distal_rvs"/>
+                <geom name="metacarpal1_rvs" type="mesh" mesh="metacarpal1_rvs"/>
+                <geom name="thumb_proximal_rvs" type="mesh" mesh="thumb_proximal_rvs"/>
+                <geom name="thumb_distal_rvs" type="mesh" mesh="thumb_distal_rvs"/>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="humerus_l" pos="0.00345299 0.406588 -0.186057">
+          <inertial pos="0 -0.176496 0" quat="0.5 0.5 -0.5 0.5" mass="1.88582" diaginertia="0.0143216 0.0127591 0.00440148"/>
+          <joint name="arm_flex_l" pos="0 0 0" axis="0 0 1" limited="false" range="-1.5708 1.5708"/>
+          <joint name="arm_add_l" pos="0 0 0" axis="-1 0 0" limited="false" range="-2.0944 1.5708"/>
+          <joint name="arm_rot_l" pos="0 0 0" axis="0 -1 0" limited="false" range="-1.5708 1.5708"/>
+          <geom name="humerus_lv" type="mesh" mesh="humerus_lv"/>
+          <body name="ulna_l" pos="0.0141023 -0.307145 0.0102946">
+            <inertial pos="0 -0.134435 0" quat="0.5 0.5 -0.5 0.5" mass="0.563657" diaginertia="0.00370895 0.00341921 0.001"/>
+            <joint name="elbow_flex_l" pos="0 0 0" axis="-0.226047 -0.022269 0.973862" limited="false" range="0 2.618"/>
+            <geom name="ulna_lv" type="mesh" mesh="ulna_lv"/>
+            <body name="radius_l" pos="-0.00750339 -0.0145082 -0.0290933">
+              <inertial pos="0 -0.140438 0" quat="0.5 0.5 -0.5 0.5" mass="0.563657" diaginertia="0.00404759 0.00373139 0.001"/>
+              <joint name="pro_sup_l" pos="0 0 0" axis="-0.056398 -0.998406 0.001952" limited="false" range="0 1.5708"/>
+              <geom name="radius_lv" type="mesh" mesh="radius_lv"/>
+              <body name="hand_l" pos="-0.0102504 -0.274807 -0.0158587">
+                <inertial pos="0 -0.068095 0" quat="0.5 0.5 -0.5 0.5" mass="0.424483" diaginertia="0.00124329 0.001 0.001"/>
+                <joint name="wrist_flex_l" pos="0 0 0" axis="0 0 1" limited="false" range="-1.22173 1.22173"/>
+                <joint name="wrist_dev_l" pos="0 0 0" axis="-1 0 0" limited="false" range="-0.436332 0.610865"/>
+                <geom name="pisiform_lvs" type="mesh" mesh="pisiform_lvs"/>
+                <geom name="lunate_lvs" type="mesh" mesh="lunate_lvs"/>
+                <geom name="scaphoid_lvs" type="mesh" mesh="scaphoid_lvs"/>
+                <geom name="triquetrum_lvs" type="mesh" mesh="triquetrum_lvs"/>
+                <geom name="hamate_lvs" type="mesh" mesh="hamate_lvs"/>
+                <geom name="capitate_lvs" type="mesh" mesh="capitate_lvs"/>
+                <geom name="trapezoid_lvs" type="mesh" mesh="trapezoid_lvs"/>
+                <geom name="trapezium_lvs" type="mesh" mesh="trapezium_lvs"/>
+                <geom name="metacarpal2_lvs" type="mesh" mesh="metacarpal2_lvs"/>
+                <geom name="index_proximal_lvs" type="mesh" mesh="index_proximal_lvs"/>
+                <geom name="index_medial_lvs" type="mesh" mesh="index_medial_lvs"/>
+                <geom name="index_distal_lvs" type="mesh" mesh="index_distal_lvs"/>
+                <geom name="metacarpal3_lvs" type="mesh" mesh="metacarpal3_lvs"/>
+                <geom name="middle_proximal_lvs" type="mesh" mesh="middle_proximal_lvs"/>
+                <geom name="middle_medial_lvs" type="mesh" mesh="middle_medial_lvs"/>
+                <geom name="middle_distal_lvs" type="mesh" mesh="middle_distal_lvs"/>
+                <geom name="metacarpal4_lvs" type="mesh" mesh="metacarpal4_lvs"/>
+                <geom name="ring_proximal_lvs" type="mesh" mesh="ring_proximal_lvs"/>
+                <geom name="ring_medial_lvs" type="mesh" mesh="ring_medial_lvs"/>
+                <geom name="ring_distal_lvs" type="mesh" mesh="ring_distal_lvs"/>
+                <geom name="metacarpal5_lvs" type="mesh" mesh="metacarpal5_lvs"/>
+                <geom name="little_proximal_lvs" type="mesh" mesh="little_proximal_lvs"/>
+                <geom name="little_medial_lvs" type="mesh" mesh="little_medial_lvs"/>
+                <geom name="little_distal_lvs" type="mesh" mesh="little_distal_lvs"/>
+                <geom name="metacarpal1_lvs" type="mesh" mesh="metacarpal1_lvs"/>
+                <geom name="thumb_proximal_lvs" type="mesh" mesh="thumb_proximal_lvs"/>
+                <geom name="thumb_distal_lvs" type="mesh" mesh="thumb_distal_lvs"/>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <deformable>
+    <flex name="softbody_l_foot" rgba="0 0.7 0.7 1" dim="3" body="softbody_l_foot_0 softbody_l_foot_1 softbody_l_foot_2 softbody_l_foot_3 softbody_l_foot_4 softbody_l_foot_5 softbody_l_foot_6 softbody_l_foot_7 softbody_l_foot_8 softbody_l_foot_9 softbody_l_foot_10 softbody_l_foot_11 softbody_l_foot_12 softbody_l_foot_13 softbody_l_foot_14" element="8 12 6 7 13 8 12 11 0 14 5 9 10 8 11 4 10 11 8 13 10 4 5 8 3 5 4 2 5 3 4 10 11 8 6 4 11 6 8 12 13 8 14 9 13 14 8 10 5 14 8 9 5 8 14 10 0 1 5 14 0 5 1 2 3 1 5 2 10 5 1 14 10 1 5 3">
+      <contact contype="28" conaffinity="2" solref="0.01 1" solimp="0.95 0.99 0.0001 0.5 2" selfcollide="none"/>
+      <edge damping="1"/>
+    </flex>
+    <flex name="softbody_r_foot" rgba="0 0.7 0.7 1" dim="3" body="softbody_r_foot_0 softbody_r_foot_1 softbody_r_foot_2 softbody_r_foot_3 softbody_r_foot_4 softbody_r_foot_5 softbody_r_foot_6 softbody_r_foot_7 softbody_r_foot_8 softbody_r_foot_9 softbody_r_foot_10 softbody_r_foot_11 softbody_r_foot_12 softbody_r_foot_13 softbody_r_foot_14" element="0 1 8 13 5 11 10 7 9 5 10 7 11 10 12 5 10 11 9 7 5 10 2 9 1 4 2 0 1 2 4 3 14 5 4 2 14 4 5 12 8 0 4 1 14 9 5 2 4 0 14 2 0 9 14 2 7 14 5 6 14 7 5 9 14 7 0 6 7 14 0 9 2 5 3 10 2 3 5 4 12 3 5 10 12 5 3 4 14 8 0 4 14 0 8 6">
+      <contact contype="20" conaffinity="10" solref="0.01 1" solimp="0.95 0.99 0.0001 0.5 2" selfcollide="none"/>
+      <edge damping="1"/>
+    </flex>
+    <flex name="softbody_l_calf" rgba="0 0.7 0.7 1" dim="3" group="1" body="softbody_l_calf_0 softbody_l_calf_1 softbody_l_calf_2 softbody_l_calf_3 softbody_l_calf_4 softbody_l_calf_5 softbody_l_calf_6 softbody_l_calf_7 softbody_l_calf_8 softbody_l_calf_9 softbody_l_calf_10 softbody_l_calf_11 softbody_l_calf_12 softbody_l_calf_13" element="13 5 6 4 6 11 13 4 0 11 6 4 3 6 0 11 12 7 9 11 8 0 4 11 0 8 4 1 0 8 10 11 13 11 7 12 11 10 7 9 10 3 2 0 3 10 2 7 3 10 11 0 10 3 11 7 5 6 7 13 5 7 6 3 11 7 6 13 11 6 7 3 8 2 0 10 2 8 0 1">
+      <contact contype="10" conaffinity="4" solref="0.01 1" solimp="0.95 0.99 0.0001 0.5 2" selfcollide="none"/>
+      <edge damping="1"/>
+    </flex>
+    <flex name="softbody_r_calf" rgba="0 0.7 0.7 1" dim="3" group="1" body="softbody_r_calf_0 softbody_r_calf_1 softbody_r_calf_2 softbody_r_calf_3 softbody_r_calf_4 softbody_r_calf_5 softbody_r_calf_6 softbody_r_calf_7 softbody_r_calf_8 softbody_r_calf_9 softbody_r_calf_10 softbody_r_calf_11 softbody_r_calf_12 softbody_r_calf_13" element="8 5 11 4 10 1 12 11 2 0 1 7 12 0 1 10 7 12 1 11 0 12 13 10 7 0 1 12 4 5 3 8 13 12 7 9 3 4 1 6 1 4 0 6 1 0 4 10 7 12 8 9 7 8 12 11 5 8 12 9 5 12 8 11 1 4 11 10 7 0 13 2 7 13 0 12 11 4 7 8 11 7 4 1 3 7 4 8 3 4 7 1">
+      <contact contype="2" conaffinity="12" solref="0.01 1" solimp="0.95 0.99 0.0001 0.5 2" selfcollide="none"/>
+      <edge damping="1"/>
+    </flex>
+    <flex name="softbody_l_thigh" rgba="0 0.7 0.7 1" dim="3" group="2" body="softbody_l_thigh_0 softbody_l_thigh_1 softbody_l_thigh_2 softbody_l_thigh_3 softbody_l_thigh_4 softbody_l_thigh_5 softbody_l_thigh_6 softbody_l_thigh_7 softbody_l_thigh_8 softbody_l_thigh_9 softbody_l_thigh_10 softbody_l_thigh_11" element="2 7 8 9 1 2 0 3 7 2 1 3 9 7 6 5 8 10 2 9 8 0 2 10 1 6 7 5 1 5 7 3 2 3 4 0 11 2 0 10 2 11 0 4 2 11 9 10 7 2 5 9 7 5 2 3 4 2 5 3 11 2 5 4 11 5 2 9">
+      <contact contype="4" conaffinity="26" solref="0.01 1" solimp="0.95 0.99 0.0001 0.5 2" selfcollide="none"/>
+      <edge damping="1"/>
+    </flex>
+    <flex name="softbody_r_thigh" rgba="0 0.7 0.7 1" dim="3" group="2" body="softbody_r_thigh_0 softbody_r_thigh_1 softbody_r_thigh_2 softbody_r_thigh_3 softbody_r_thigh_4 softbody_r_thigh_5 softbody_r_thigh_6 softbody_r_thigh_7 softbody_r_thigh_8 softbody_r_thigh_9 softbody_r_thigh_10 softbody_r_thigh_11" element="0 3 1 8 11 1 8 6 1 11 5 6 2 8 1 6 0 8 1 2 7 10 8 11 3 9 0 4 9 3 0 8 6 7 8 11 6 8 7 2 9 3 10 4 5 10 3 4 10 8 3 9 5 8 1 3 8 5 1 11 8 5 10 3 5 8 10 11">
+      <contact contype="12" conaffinity="18" solref="0.01 1" solimp="0.95 0.99 0.0001 0.5 2" selfcollide="none"/>
+      <edge damping="1"/>
+    </flex>
+  </deformable>
+  <equality>
+    <joint name="knee_angle_r_translation2_constraint" joint1="knee_angle_r_translation2" joint2="knee_angle_r" polycoef="7.69254e-11 0.00587971 -0.00125622 -2.61846e-06 6.24355e-07" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    <joint name="knee_angle_r_translation1_constraint" joint1="knee_angle_r_translation1" joint2="knee_angle_r" polycoef="9.53733e-08 0.00312879 -0.00230804 0.000561561 5.68366e-07" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    <joint name="knee_angle_r_rotation2_constraint" joint1="knee_angle_r_rotation2" joint2="knee_angle_r" polycoef="-1.47325e-08 0.0791 -0.0328478 -0.0252183 0.0108321" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    <joint name="knee_angle_r_rotation3_constraint" joint1="knee_angle_r_rotation3" joint2="knee_angle_r" polycoef="1.08939e-08 0.369499 -0.169478 0.0251643 3.50498e-07" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    <joint name="knee_angle_r_beta_translation2_constraint" joint1="knee_angle_r_beta_translation2" joint2="knee_angle_r" polycoef="-0.0108281 -0.0487847 0.00927644 0.0131673 -0.00349673" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    <joint name="knee_angle_r_beta_translation1_constraint" joint1="knee_angle_r_beta_translation1" joint2="knee_angle_r" polycoef="0.0524192 -0.0150188 -0.0340522 0.0133393 -0.000879151" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    <joint name="knee_angle_r_beta_rotation1_constraint" joint1="knee_angle_r_beta_rotation1" joint2="knee_angle_r" polycoef="0.010506 0.0247615 -1.31647 0.716337 -0.138302" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    <joint name="subtalar_angle_r_constraint" joint1="subtalar_angle_r" polycoef="0 0 0 0 0"/>
+    <joint name="mtp_angle_r_constraint" joint1="mtp_angle_r" polycoef="0 0 0 0 0"/>
+    <joint name="knee_angle_l_translation2_constraint" joint1="knee_angle_l_translation2" joint2="knee_angle_l" polycoef="-7.69254e-11 -0.00587971 0.00125622 2.61846e-06 -6.24355e-07" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    <joint name="knee_angle_l_translation1_constraint" joint1="knee_angle_l_translation1" joint2="knee_angle_l" polycoef="9.53733e-08 0.00312879 -0.00230804 0.000561561 5.68366e-07" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    <joint name="knee_angle_l_rotation2_constraint" joint1="knee_angle_l_rotation2" joint2="knee_angle_l" polycoef="-1.47325e-08 0.0791 -0.0328478 -0.0252183 0.0108321" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    <joint name="knee_angle_l_rotation3_constraint" joint1="knee_angle_l_rotation3" joint2="knee_angle_l" polycoef="-1.08939e-08 -0.369499 0.169478 -0.0251643 -3.50498e-07" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    <joint name="knee_angle_l_beta_translation2_constraint" joint1="knee_angle_l_beta_translation2" joint2="knee_angle_l" polycoef="-0.0108281 -0.0487847 0.00927644 0.0131673 -0.00349673" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    <joint name="knee_angle_l_beta_translation1_constraint" joint1="knee_angle_l_beta_translation1" joint2="knee_angle_l" polycoef="0.0524192 -0.0150188 -0.0340522 0.0133393 -0.000879151" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    <joint name="knee_angle_l_beta_rotation1_constraint" joint1="knee_angle_l_beta_rotation1" joint2="knee_angle_l" polycoef="0.010506 0.0247615 -1.31647 0.716337 -0.138302" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    <joint name="subtalar_angle_l_constraint" joint1="subtalar_angle_l" polycoef="0 0 0 0 0"/>
+    <joint name="mtp_angle_l_constraint" joint1="mtp_angle_l" polycoef="0 0 0 0 0"/>
+    <joint name="wrist_flex_r_constraint" joint1="wrist_flex_r" polycoef="0 0 0 0 0"/>
+    <joint name="wrist_dev_r_constraint" joint1="wrist_dev_r" polycoef="0 0 0 0 0"/>
+    <joint name="wrist_flex_l_constraint" joint1="wrist_flex_l" polycoef="0 0 0 0 0"/>
+    <joint name="wrist_dev_l_constraint" joint1="wrist_dev_l" polycoef="0 0 0 0 0"/>
+    <weld name="origin_to_worldbody" body1="pelvis" anchor="0 0 0" torquescale="1" relpose="0 0 0 0.707107 -0.707107 0 0" active="false"/>
+  </equality>
+  <actuator>
+    <general name="lumbar_ext" class="motor" joint="lumbar_extension"/>
+    <general name="lumbar_bend" class="motor" joint="lumbar_bending"/>
+    <general name="lumbar_rot" class="motor" joint="lumbar_rotation"/>
+    <general name="shoulder_flex_r" class="motor" joint="arm_flex_r"/>
+    <general name="shoulder_add_r" class="motor" joint="arm_add_r"/>
+    <general name="shoulder_rot_r" class="motor" joint="arm_rot_r"/>
+    <general name="elbow_flex_r" class="motor" joint="elbow_flex_r"/>
+    <general name="pro_sup_r" class="motor" joint="pro_sup_r"/>
+    <general name="wrist_flex_r" class="motor" joint="wrist_flex_r"/>
+    <general name="wrist_dev_r" class="motor" joint="wrist_dev_r"/>
+    <general name="shoulder_flex_l" class="motor" joint="arm_flex_l"/>
+    <general name="shoulder_add_l" class="motor" joint="arm_add_l"/>
+    <general name="shoulder_rot_l" class="motor" joint="arm_rot_l"/>
+    <general name="elbow_flex_l" class="motor" joint="elbow_flex_l"/>
+    <general name="pro_sup_l" class="motor" joint="pro_sup_l"/>
+    <general name="wrist_flex_l" class="motor" joint="wrist_flex_l"/>
+    <general name="wrist_dev_l" class="motor" joint="wrist_dev_l"/>
+    <general name="knee_angle_r_beta_rotation1" class="motor" joint="knee_angle_r_beta_rotation1" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_r_rotation3" class="motor" joint="knee_angle_r_rotation3" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="hip_rotation_l" class="motor" joint="hip_rotation_l" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_l_beta_rotation1" class="motor" joint="knee_angle_l_beta_rotation1" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="hip_flexion_l" class="motor" joint="hip_flexion_l" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="pelvis_list" class="motor" joint="pelvis_list" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_r_translation1" class="motor" joint="knee_angle_r_translation1" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="pelvis_tilt" class="motor" joint="pelvis_tilt" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_l_rotation3" class="motor" joint="knee_angle_l_rotation3" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_l_translation2" class="motor" joint="knee_angle_l_translation2" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="hip_rotation_r" class="motor" joint="hip_rotation_r" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_r_rotation2" class="motor" joint="knee_angle_r_rotation2" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="mtp_angle_r" class="motor" joint="mtp_angle_r" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_r_beta_translation1" class="motor" joint="knee_angle_r_beta_translation1" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="hip_flexion_r" class="motor" joint="hip_flexion_r" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="hip_adduction_l" class="motor" joint="hip_adduction_l" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="ankle_angle_r" class="motor" joint="ankle_angle_r" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_r_beta_translation2" class="motor" joint="knee_angle_r_beta_translation2" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="mtp_angle_l" class="motor" joint="mtp_angle_l" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="ankle_angle_l" class="motor" joint="ankle_angle_l" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_l_beta_translation1" class="motor" joint="knee_angle_l_beta_translation1" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="subtalar_angle_r" class="motor" joint="subtalar_angle_r" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_l_rotation2" class="motor" joint="knee_angle_l_rotation2" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="pelvis_rotation" class="motor" joint="pelvis_rotation" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_r" class="motor" joint="knee_angle_r" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="pelvis_ty" class="motor" joint="pelvis_ty" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_l" class="motor" joint="knee_angle_l" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="pelvis_tx" class="motor" joint="pelvis_tx" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="hip_adduction_r" class="motor" joint="hip_adduction_r" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_r_translation2" class="motor" joint="knee_angle_r_translation2" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="pelvis_tz" class="motor" joint="pelvis_tz" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_l_translation1" class="motor" joint="knee_angle_l_translation1" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="subtalar_angle_l" class="motor" joint="subtalar_angle_l" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+    <general name="knee_angle_l_beta_translation2" class="motor" joint="knee_angle_l_beta_translation2" gainprm="1 0 0 0 0 0 0 0 0 0"/>
+  </actuator>
+  <equality>
+    <connect body1="softbody_l_foot_8"    anchor="0 0 0" body2="calcn_l" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>   
+    <connect body1="softbody_l_foot_3"    anchor="0 0 0" body2="calcn_l" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+    <connect body1="softbody_l_foot_13"   anchor="0 0 0" body2="calcn_l" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+
+    <connect body1="softbody_r_foot_0"  anchor="0 0 0" body2="talus_r" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>   
+    <connect body1="softbody_r_foot_7"  anchor="0 0 0" body2="calcn_r" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+    <connect body1="softbody_r_foot_14" anchor="0 0 0" body2="calcn_r" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+    
+    <connect body1="softbody_l_calf_7" anchor="0 0 0" body2="tibia_l"  solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"  />
+    <connect body1="softbody_l_calf_0" anchor="0 0 0" body2="tibia_l"  solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"  />
+    <connect body1="softbody_l_calf_1" anchor="0 0 0" body2="tibia_l"  solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10" />
+
+    <connect body1="softbody_r_calf_7" anchor="0 0 0" body2="tibia_r"  solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"  />
+    <connect body1="softbody_r_calf_0" anchor="0 0 0" body2="tibia_r"  solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"  />
+    <connect body1="softbody_r_calf_3" anchor="0 0 0" body2="tibia_r"  solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10" />
+    
+    <connect body1="softbody_l_thigh_4" anchor="0 0 0" body2="femur_l" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+    <connect body1="softbody_l_thigh_9" anchor="0 0 0" body2="femur_l" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+    <connect body1="softbody_l_thigh_3" anchor="0 0 0" body2="femur_l" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+
+    <connect body1="softbody_r_thigh_3" anchor="0 0 0" body2="femur_r" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+    <connect body1="softbody_r_thigh_8" anchor="0 0 0" body2="femur_r" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+    <connect body1="softbody_r_thigh_1" anchor="0 0 0" body2="femur_r" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+
+
+
+    <connect body1="softbody_r_thigh_2" anchor="0 0 0" body2="softbody_r_calf_7" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+    <connect body1="softbody_r_thigh_2" anchor="0 0 0" body2="softbody_r_calf_9" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+    <connect body1="softbody_r_thigh_6" anchor="0 0 0" body2="softbody_r_calf_12" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+
+    <connect body1="softbody_r_thigh_1" anchor="0 0 0" body2="softbody_r_calf_13" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+    <connect body1="softbody_r_thigh_0" anchor="0 0 0" body2="softbody_r_calf_2" solref="0.0002 0.4" solimp ="0.93 0.95 0.001 0.1 10"/>
+  </equality>
+</mujoco>

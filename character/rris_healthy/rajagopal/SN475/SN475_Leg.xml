@@ -1,0 +1,161 @@
+<mujoco model="SN475_Rajagopal_Scaled">
+  <compiler inertiafromgeom="auto" angle="radian" balanceinertia="true" boundmass="0.001" boundinertia="0.001">
+    <lengthrange inttotal="50" useexisting="true" />
+  </compiler>
+  <default>
+    <joint limited="true" damping="0.5" armature="0.1" stiffness="0" />
+    <geom rgba="0.8 0.6 .4 1" margin="0.001" />
+    <general gainprm="5 0 0 0 0 0 0 0 0 0" ctrllimited="true" ctrlrange="-10.0 10.0"/>
+  </default>
+  <option timestep="0.001" />
+  <size njmax="1000" nconmax="400" nuser_jnt="1" />
+  <worldbody>
+    <geom name="floor" pos="0 0 0" size="10 10 0.125" type="plane" material="MatPlane" condim="3" />
+    <body name="pelvis" pos="       0        0        0" quat="0.7071067811865475 0.7071067811865475 0.0 0.0">
+      <light mode="trackcom" directional="false" pos="0 0 4.0" dir="0 0 -1" />
+      <geom name="r_pelvis" type="mesh" mesh="r_pelvis" />
+      <geom name="l_pelvis" type="mesh" mesh="l_pelvis" />
+      <geom name="sacrum" type="mesh" mesh="sacrum" />
+      <inertial pos="-0.0759082        0        0" mass="11.5893980715774" fullinertia="0.116616 0.0988059 0.0656815        0        0        0" />
+      <joint name="pelvis_tz" type="slide" pos="0 0 0" axis="       0        0        1" limited="false" range="      -3        3" ref="0" armature="0" damping="0" stiffness="0" />
+      <joint name="pelvis_ty" type="slide" pos="0 0 0" axis="       0        1        0" limited="false" range="      -1        2" ref="0" armature="0" damping="0" stiffness="0" />
+      <joint name="pelvis_tx" type="slide" pos="0 0 0" axis="       1        0        0" limited="false" range="      -5        5" ref="0" armature="0" damping="0" stiffness="0" />
+      <joint name="pelvis_tilt" type="hinge" pos="0 0 0" axis="       0        0        1" limited="false" range=" -1.5708   1.5708" ref="0" armature="0" damping="0" stiffness="0" />
+      <joint name="pelvis_list" type="hinge" pos="0 0 0" axis="       1        0        0" limited="false" range=" -1.5708   1.5708" ref="0" armature="0" damping="0" stiffness="0" />
+      <joint name="pelvis_rotation" type="hinge" pos="0 0 0" axis="       0        1        0" limited="false" range=" -1.5708   1.5708" ref="0" armature="0" damping="0" stiffness="0" />
+      <body name="femur_r" pos="-0.0604216 -0.0842721 0.0829514" quat="1.0 0.0 0.0 0.0">
+        <geom name="r_femur" type="mesh" mesh="r_femur" />
+        <inertial pos="       0 -0.155893        0" mass="5.70296029242102" fullinertia="0.069038 0.0180973 0.0728018        0        0        0" />
+        <joint name="hip_flexion_r" type="hinge" pos="0 0 0" axis="       0        0        1" limited="true" range="-0.523599   2.0944" ref="0" />
+        <joint name="hip_adduction_r" type="hinge" pos="0 0 0" axis="       1        0        0" limited="true" range="-0.872665 0.523599" ref="0" />
+        <joint name="hip_rotation_r" type="hinge" pos="0 0 0" axis="       0        1        0" limited="true" range="-0.698132 0.698132" ref="0" />
+        <body name="tibia_r" pos="0.000321678 -0.370724 -0.00110115" quat="1.0 7.240636975890137e-18 -9.456205735995121e-17 -2.960068750797159e-20">
+          <geom name="r_tibia" type="mesh" mesh="r_tibia" />
+          <geom name="r_fibula" type="mesh" mesh="r_fibula" />
+          <inertial pos="       0 -0.178641        0" mass="2.58232270713756" fullinertia="0.0321391 0.00325217 0.0325855        0        0        0" />
+          <joint name="knee_angle_r" type="hinge" pos="0 0 0" axis="-3.98373e-10 -0.0707131 -0.997497" limited="true" range="       0   2.0944" ref="0" />
+          <body name="talus_r" pos="-0.00956835 -0.382734        0" quat="1.0 -6.036754011562992e-18 1.5193252867388614e-18 -2.498419531737724e-19">
+            <geom name="r_talus" type="mesh" mesh="r_talus" />
+            <inertial pos="       0        0        0" mass="0.047281631812007" fullinertia="0.000334355 0.000334355 0.000334355        0        0        0" />
+            <joint name="ankle_angle_r" type="hinge" pos="0 0 0" axis="-0.105014 -0.174022 0.979126" limited="true" range="-0.698132 0.523599" ref="0" />
+            <body name="calcn_r" pos="-0.041012 -0.0352769 0.00666014" quat="1.0 -5.320429553087796e-19 1.609289071159989e-17 -2.1848634538867752e-17">
+              <geom name="r_foot" type="mesh" mesh="r_foot" />
+              <inertial pos="0.0840926 0.0252278        0" mass="0.591020397650087" fullinertia="0.000468098 0.00130399 0.00137086        0        0        0" />
+              <body name="toes_r" pos="0.150358 -0.00168185 0.000908201" quat="1.0 1.314867274624753e-31 -2.6810890689525335e-17 -3.939849802505862e-32">
+                <geom name="r_bofoot" type="mesh" mesh="r_bofoot" />
+                <inertial pos="0.0290961 0.00504556 -0.0147162" mass="0.102412014504807" fullinertia="3.34355e-05 6.68711e-05 0.000334355        0        0        0" />
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <camera name="for_testing" pos="0 0 0" euler="0 0 0" />
+  </worldbody>
+  <asset>
+    <mesh name="r_pelvis" file="Geometry/r_pelvis.stl" scale=" 1.07367  1.07367  1.07367" />
+    <mesh name="l_pelvis" file="Geometry/l_pelvis.stl" scale=" 1.07367  1.07367  1.07367" />
+    <mesh name="sacrum" file="Geometry/sacrum.stl" scale=" 1.07367  1.07367  1.07367" />
+    <mesh name="r_femur" file="Geometry/r_femur.stl" scale="0.917018 0.917018 0.917018" />
+    <mesh name="r_tibia" file="Geometry/r_tibia.stl" scale="0.956835 0.956835 0.956835" />
+    <mesh name="r_fibula" file="Geometry/r_fibula.stl" scale="0.956835 0.956835 0.956835" />
+    <mesh name="r_talus" file="Geometry/r_talus.stl" scale="0.840926 0.840926 0.840926" />
+    <mesh name="r_foot" file="Geometry/r_foot.stl" scale="0.840926 0.840926 0.840926" />
+    <mesh name="r_bofoot" file="Geometry/r_bofoot.stl" scale="0.840926 0.840926 0.840926" />
+    <mesh name="l_femur" file="Geometry/l_femur.stl" scale="0.910748 0.910748 0.910748" />
+    <mesh name="l_tibia" file="Geometry/l_tibia.stl" scale="0.961214 0.961214 0.961214" />
+    <mesh name="l_fibula" file="Geometry/l_fibula.stl" scale="0.961214 0.961214 0.961214" />
+    <mesh name="l_talus" file="Geometry/l_talus.stl" scale="0.829093 0.829093 0.829093" />
+    <mesh name="l_foot" file="Geometry/l_foot.stl" scale="0.829093 0.829093 0.829093" />
+    <mesh name="l_bofoot" file="Geometry/l_bofoot.stl" scale="0.829093 0.829093 0.829093" />
+    <mesh name="hat_spine" file="Geometry/hat_spine.stl" scale="0.955551 0.955551 0.955551" />
+    <mesh name="hat_jaw" file="Geometry/hat_jaw.stl" scale="0.955551 0.955551 0.955551" />
+    <mesh name="hat_skull" file="Geometry/hat_skull.stl" scale="0.955551 0.955551 0.955551" />
+    <mesh name="hat_ribs_scap" file="Geometry/hat_ribs_scap.stl" scale="0.955551 0.955551 0.955551" />
+    <mesh name="humerus_rv" file="Geometry/humerus_rv.stl" scale="0.867296 0.867296 0.867296" />
+    <mesh name="ulna_rv" file="Geometry/ulna_rv.stl" scale="0.964472 0.964472 0.964472" />
+    <mesh name="radius_rv" file="Geometry/radius_rv.stl" scale=" 1.01521  1.01521  1.01521" />
+    <mesh name="pisiform_rvs" file="Geometry/pisiform_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="lunate_rvs" file="Geometry/lunate_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="scaphoid_rvs" file="Geometry/scaphoid_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="triquetrum_rvs" file="Geometry/triquetrum_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="hamate_rvs" file="Geometry/hamate_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="capitate_rvs" file="Geometry/capitate_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="trapezoid_rvs" file="Geometry/trapezoid_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="trapezium_rvs" file="Geometry/trapezium_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="metacarpal2_rvs" file="Geometry/metacarpal2_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="index_proximal_rvs" file="Geometry/index_proximal_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="index_medial_rvs" file="Geometry/index_medial_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="index_distal_rvs" file="Geometry/index_distal_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="metacarpal3_rvs" file="Geometry/metacarpal3_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="middle_proximal_rvs" file="Geometry/middle_proximal_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="middle_medial_rvs" file="Geometry/middle_medial_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="middle_distal_rvs" file="Geometry/middle_distal_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="metacarpal4_rvs" file="Geometry/metacarpal4_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="ring_proximal_rvs" file="Geometry/ring_proximal_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="ring_medial_rvs" file="Geometry/ring_medial_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="ring_distal_rvs" file="Geometry/ring_distal_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="metacarpal5_rvs" file="Geometry/metacarpal5_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="little_proximal_rvs" file="Geometry/little_proximal_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="little_medial_rvs" file="Geometry/little_medial_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="little_distal_rvs" file="Geometry/little_distal_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="metacarpal1_rvs" file="Geometry/metacarpal1_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="thumb_proximal_rvs" file="Geometry/thumb_proximal_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="thumb_distal_rvs" file="Geometry/thumb_distal_rvs.stl" scale="0.797932 0.797932 0.797932" />
+    <mesh name="humerus_lv" file="Geometry/humerus_lv.stl" scale="0.874923 0.874923 0.874923" />
+    <mesh name="ulna_lv" file="Geometry/ulna_lv.stl" scale="0.942149 0.942149 0.942149" />
+    <mesh name="radius_lv" file="Geometry/radius_lv.stl" scale=" 1.00924  1.00924  1.00924" />
+    <mesh name="pisiform_lvs" file="Geometry/pisiform_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="lunate_lvs" file="Geometry/lunate_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="scaphoid_lvs" file="Geometry/scaphoid_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="triquetrum_lvs" file="Geometry/triquetrum_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="hamate_lvs" file="Geometry/hamate_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="capitate_lvs" file="Geometry/capitate_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="trapezoid_lvs" file="Geometry/trapezoid_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="trapezium_lvs" file="Geometry/trapezium_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="metacarpal2_lvs" file="Geometry/metacarpal2_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="index_proximal_lvs" file="Geometry/index_proximal_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="index_medial_lvs" file="Geometry/index_medial_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="index_distal_lvs" file="Geometry/index_distal_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="metacarpal3_lvs" file="Geometry/metacarpal3_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="middle_proximal_lvs" file="Geometry/middle_proximal_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="middle_medial_lvs" file="Geometry/middle_medial_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="middle_distal_lvs" file="Geometry/middle_distal_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="metacarpal4_lvs" file="Geometry/metacarpal4_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="ring_proximal_lvs" file="Geometry/ring_proximal_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="ring_medial_lvs" file="Geometry/ring_medial_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="ring_distal_lvs" file="Geometry/ring_distal_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="metacarpal5_lvs" file="Geometry/metacarpal5_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="little_proximal_lvs" file="Geometry/little_proximal_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="little_medial_lvs" file="Geometry/little_medial_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="little_distal_lvs" file="Geometry/little_distal_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="metacarpal1_lvs" file="Geometry/metacarpal1_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="thumb_proximal_lvs" file="Geometry/thumb_proximal_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <mesh name="thumb_distal_lvs" file="Geometry/thumb_distal_lvs.stl" scale="0.913056 0.913056 0.913056" />
+    <texture name="texplane" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 0.15 0.2" width="100" height="100" />
+    <material name="MatPlane" reflectance="0.0" texture="texplane" texrepeat="1 1" texuniform="true" />
+  </asset>
+  <actuator>
+    <!-- Root -->
+    <!-- <position name="pelvis_tz" joint="pelvis_tz"/>
+    <position name="pelvis_ty" joint="pelvis_ty"/>
+    <position name="pelvis_tx" joint="pelvis_tx"/>
+    <position name="pelvis_tilt" joint="pelvis_tilt"  ctrlrange="-1.5708   1.5708"/>
+    <position name="pelvis_list" joint="pelvis_list"  ctrlrange="-1.5708   1.5708"/>
+    <position name="pelvis_rotation" joint="pelvis_rotation"  ctrlrange="-1.5708   1.5708"/> -->
+
+    <!-- Right Leg -->
+    <position name="hip_flexion_r" joint="hip_flexion_r"  ctrlrange="-0.523599   2.0944"/>
+    <position name="hip_adduction_r" joint="hip_adduction_r"  ctrlrange="-0.872665 0.523599"/>
+    <position name="hip_rotation_r" joint="hip_rotation_r"  ctrlrange="-0.698132 0.698132"/>
+    <position name="knee_angle_r" joint="knee_angle_r"  ctrlrange="0   2.0944"/>
+    <position name="ankle_angle_r" joint="ankle_angle_r"  ctrlrange="-0.698132 0.523599"/>
+  </actuator>
+  <equality>
+    <weld name="origin_to_worldbody" body1="pelvis" active="false" />
+  </equality>
+  <sensor>
+    <subtreecom name="COM" body="pelvis"/>
+    <subtreelinvel name="COM_Vel" body="pelvis"/>
+  </sensor>
+</mujoco>

@@ -1,0 +1,15 @@
+<mujoco model="humanoidAMP">
+
+    <compiler meshdir="./character/rris_healthy/rajagopal" angle="radian"/>
+
+    <option timestep="0.002"
+            integrator="RK4"/>
+
+    <include file="./common/skybox.xml"/>
+    <include file="./common/visual.xml"/>
+
+    <!-- Models -->
+    <include file="./character/rris_healthy/rajagopal/SN475/SN475_MSK.xml"/>
+    <!-- <include file="./character/rris_healthy/rajagopal/SN475/SN475_SK_pos.xml"/> -->
+    <!-- <include file="./character/rris_healthy/rajagopal/SN475/SN475_SK.xml"/> -->
+</mujoco>

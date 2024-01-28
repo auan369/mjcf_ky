@@ -1,0 +1,32 @@
+l ankle
+
+0 is at heel
+349/150 near centre (arch of foot)
+267 at toes
+
+r ankle
+
+0 near heel
+softbody_r_foot_336 near middle
+softbody_r_foot_238 at toes
+
+L calf
+7 is top front
+6 is top back
+0 is middlerear
+1 is bottom rear
+
+R calf
+7 is top front
+0 id middle rear
+3 is bottom
+
+L thigh
+4 is rear top
+9 is front middle
+3 is bottom rear
+
+r thigh
+3 is top rear
+8 is front middle
+1 is bottom rear

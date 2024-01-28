@@ -1,0 +1,20 @@
+<mujoco model="RRIS Rajagopal">
+
+    <compiler meshdir="./character/rris_healthy/rajagopal" angle="radian"/>
+
+    <option timestep="0.002"
+            integrator="implicitfast"/>
+    <size memory="12G"/>
+
+    <include file="./common/skybox.xml"/>
+    <include file="./common/visual.xml"/>
+
+    <!-- Models -->
+    <!-- <include file="./character/rris_healthy/rajagopal/SN475/SN475_SK_pos_simplified.xml"/> -->
+
+    <include file="./character/rris_healthy/rajagopal/SN475/SN475_SK_motor_simplified_jointLimited_CtrlLimited_flex.xml"/>
+    <!-- <include file="./character/rris_healthy/rajagopal/SN475/SN475_SK_motor_simplified_jointLimited_CtrlUnlimited.xml"/> -->
+
+    <!-- <include file="./character/rris_healthy/rajagopal/SN475/SN475_SK_motor_simplified_jointUnlimited_CtrlLimited.xml"/> -->
+    <!-- <include file="./character/rris_healthy/rajagopal/SN475/SN475_SK_motor_simplified_jointUnlimited_CtrlUnlimited.xml"/> -->
+</mujoco>
